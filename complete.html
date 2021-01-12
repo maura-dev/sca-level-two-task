@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" lang="en"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Maureen's Business Form</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">                                     
+	<link rel="stylesheet" type="text/css" href="./styles.css">
+
+	<style>
+		
+		body{
+			background-color:#023e8a;
+		}
+	</style>
+</head>
+<body >
+	<div class="submitted">
+		<h1 id="heading"></h1>
+	</div>
+
+	<script type="text/javascript">
+		var name=localStorage.getItem("fullName")
+		document.getElementById("heading").innerText=`Congratulations ${name}, you have successfully submitted this form.`
+	</script>
+</body>
+</html>

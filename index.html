@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" lang="en"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Maureen's Business Form</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">                                     
+	<link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+<body>
+	<div class="container">
+		<div class="form-heading box"></div>
+		<div class="form-page box">
+			<div class="img-content">
+			</div>
+			<div class="mobile-img">
+				<img src="./bg-01.jpg">
+			</div>
+
+			<div class="form-content">
+				<h2>Let's work together</h2>
+
+				<p>We'll love to hear from you. Send us a message using the form application or email us by clicking <a href="mailto:maureenanyanwu519@gmail.com?subject=Business request to Maureen Anyanwu">here</a>. Cheers!</p>
+
+				<form action="#" method="post">
+					<div class="field name" >
+						<input type="text" id="fullName" name ="fullName" value="" onchange="handleChange()">
+						<label>Full Name</label>
+						<sub id="error-name">Please enter your name</sub>
+					</div>
+
+					<div class="field name">
+						<input type="email" id="email" name="email" value="" onchange="handleChange()">
+						<label>Email</label>
+						<sub id="error-email">Please enter a valid email</sub>
+					</div>
+
+					<div class="field name">
+						<input type="tel" id="phone" name="phone" value="" onchange="handleChange()">
+						<label>Phone</label>
+						<sub id="error-phone">Please enter a phone number</sub>
+					</div>
+
+					<div class="field name" >
+						<input type="text" id="comp"  name="comp" value="" onchange="handleChange()">
+						<label>Company</label>
+						<sub id="error-comp">Please enter a company name</sub>
+					</div>	
+
+					<div class="help">
+						<p>How can we help you?</p>
+						<textarea type="text" id="help" maxlength="500" name="help" placeholder="Maximum number of characters allowed is 500" value="" onchange="handleChange()"></textarea>						
+						<sub id="error-help">Please fill this field</sub>
+					</div>
+
+					<div class="budget">
+						<p>Expected budget</p>
+
+						<label> Below 100k
+							<input type="radio" name="budget" value="Less than 100K" />
+					 		<span></span> 
+					 	</label>
+
+					 	<label>100k-150k
+		 	   				<input type="radio" name="budget" value="100-150"/>
+		 	   	   	 		<span></span>  
+		 	   	   	 	</label>
+
+		 	   	   	 	<label>150k-200k
+							<input type="radio" name="budget" value="150-200" />
+				  			 <span></span> 
+				  		</label>
+
+				  		<label>Above 200k
+				  			<input type="radio" name="budget" value="Above 200k" />
+							<span></span> 
+						</label>
+						<sub id="error-budget">Please select a budget</sub>
+					</div>
+
+					<div class="field">
+						<input type="text" id="referrer" name="referrer" value="" onchange="handleChange()">
+						<label>How did you hear about us?</label>
+						<sub id="error-referrer">Please fill this field</sub>
+					</div>
+
+					<button type="button" class="btn" onclick="handleSubmit()">Submit</button>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+		function handleChange(){
+			var x=document.getElementsByTagName("input")
+			for(i=0;i<x.length;i++){
+				x[i].style.border="1px solid #023e8a"
+			}
+			var y=document.getElementsByTagName("sub")
+			for(j=0;j<y.length;j++){
+				y[j].style.visibility="hidden"
+			}
+
+			document.getElementById("help").style.border="1px solid  #023e8a"
+		}
+
+		function handleSubmit(){
+			localStorage.removeItem("fullName")
+
+			//e.preventDefault()
+
+			if(fullName.value==""){
+				document.getElementById("error-name").style.visibility="visible"
+				document.getElementById("fullName").style.border="1px solid red"
+			}
+			else if(email.value==""){
+				document.getElementById("error-email").style.visibility="visible"
+				document.getElementById("email").style.border="1px solid red"
+			}
+			else if(phone.value==""){
+				document.getElementById("error-phone").style.visibility="visible"
+				document.getElementById("phone").style.border="1px solid red"
+			}
+			else if(comp.value==""){
+				document.getElementById("error-comp").style.visibility="visible"
+				document.getElementById("comp").style.border="1px solid red"
+			}
+			else if(help.value==""){
+				document.getElementById("error-help").style.visibility="visible"
+				document.getElementById("help").style.border="1px solid red"
+			}
+			else if(document.querySelector('input[name="budget"]:checked')==null){
+				document.getElementById("error-budget").style.visibility="visible"
+				//document.getElementById("budget").style.border="1px solid red"
+			}
+			else if(referrer.value==""){
+				document.getElementById("error-referrer").style.visibility="visible"
+				document.getElementById("referrer").style.border="1px solid red"
+			}
+			else{
+				localStorage.setItem("fullName", fullName.value)
+				window.location.href="./complete.html"
+			}
+
+		}
+		
+	</script>
+
+</body>
+</html>

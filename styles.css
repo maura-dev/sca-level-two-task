@@ -1,0 +1,327 @@
+
+*{
+	box-sizing: border-box;
+}
+
+html,body{                           
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: #023e8a;
+}
+
+a{
+  text-decoration: none;
+  color: #023e8a;
+  font-weight:700;
+}
+
+.container{
+	width:100vw;
+	height: 100vh;
+	position: relative;
+
+}
+
+.box{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.form-heading{
+	background-color: #023e8a;
+	width: 100%;
+	height:20vh;
+	
+}
+
+.form-page{
+	z-index: 9;
+	margin: 5vh 5vw 0px 5vw;
+	width:90vw;
+	display:flex;
+	flex-direction: row-reverse;
+	height:95vh;
+	border:2px solid #023e8a;
+	background-color: #fffffe;
+}
+
+.img-content{
+	background-image: url('./bg-01.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width:40vw;
+}
+
+.form-content{
+	width: 50vw;
+	padding:10px;
+	text-align:center;
+}
+
+.field{
+    height: 35px;
+    width: 90%;
+    margin: 20px auto;
+    position: relative;
+}
+.field input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    font-size: 12px;
+    padding-left: 20px;
+    border: 1px solid #023e8a;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.field input:focus,
+.field input:valid{
+    border-color: #023e8a;
+}
+.field label{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    color: #999999;
+    font-weight: 400;
+    font-size: 12px;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+.field input:focus ~ label,
+.field input:valid ~ label{
+    top: 0%;
+    font-size: 12px;
+    color: var(--secondary-color);
+    background: #fff;
+    transform: translateY(-50%);
+}
+
+.name{
+	width:45%;
+	display:inline-block;
+}
+
+.help{
+	width:60%;
+	display: inline-block;
+	margin-right: 5%
+}
+
+.help p,
+.budget p{
+	margin-bottom: 5px;
+}
+
+textarea{
+	width:90%;
+	height:15vh;
+	resize:none;
+  outline-style: none;
+	border-radius: 10px;
+	font-family: 'Poppins', sans-serif;
+	border:1px solid #023e8a;
+}
+
+textarea::placeholder{
+	text-align: center;
+}
+
+textarea:focus,
+textarea:valid{
+  border:1px solid  #023e8a;
+}
+
+.budget{
+	width: 30%;
+	display: inline-block;
+}
+
+.budget p{
+	text-align: left;
+}
+/*styling the form submit button*/
+  .btn{
+  	padding:10px;
+  	display: block;
+  	margin: 30px auto 20px auto;
+  	background-color: #023e8a;
+  	color:#fffffe;
+  	border-radius: 10px;
+  	outline-style: none;
+  	border:2px solid #023e8a;
+  	transition: 0.8s ease-in-out;
+  }
+
+  .btn:hover{
+  	background-color: #ffffee;
+  	color:#023e8a;
+  }
+
+  sub{
+  	color:red;
+  	height:15px;
+  	visibility: hidden;
+  }
+
+/* Customize the label (the container) */
+.budget label {
+  display: block;
+  position: relative;
+  padding: 3px;
+ border: 1px solid  #023e8a;
+ border-radius: 10px;
+ margin-bottom: 5px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.budget input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom radio button */
+span {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 15px;
+  width: 13px;
+  background-color: #fffffe;
+  border-radius: 50%;
+  border:2px solid #023e8a ;
+}
+
+.budget label:hover input ~ span {
+  background-color: #ccc;
+}
+
+.budget label input:checked ~ span{
+  background-color:  #023e8a;
+}
+
+span:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.budget label input:checked ~ span:after {
+  display: block;
+}
+
+.budget label span:after {
+  top: 5px;
+  left: 3px;
+  width: 3px;
+  height: 5px;
+  border-radius: 50%;
+  background:  #023e8a;
+}
+
+.submitted{
+  width:60%;
+  height:50%;
+  margin:10% auto 10% auto;
+  border:2px solid #023e8a;
+  background-color: #fffffe;
+  padding:10%;
+}
+
+.mobile-img{
+  display:none;
+}
+
+
+/*media query across smaller devices*/
+@media screen and (max-width: 500px) {
+  .submitted{
+    width:80%;
+  }
+
+  .form-page{
+    flex-direction:column;
+    width:90vw;
+    justify-content: center;
+    height:auto;
+    border:none;
+  }
+
+  .form-heading{
+    display:none;
+  }
+
+  .img-content{
+    display: none;
+  }
+
+  .form-content{
+    width:90vw;
+    padding:10px;
+    border:2px solid;
+  }
+
+  .name{
+    width:90%;
+  }
+
+  .budget,
+  .help{
+    display:block;
+    width:90%;
+  }
+
+  .budget p{
+    text-align:center;
+  }
+
+  textarea{
+    width:100%;
+    margin-left:15px;
+    display:block;
+  }
+
+  .mobile-img{
+    display:block;
+    height:30vh;
+    width:100%;
+    margin:0px;
+    padding:0px;
+    top:0;
+    left:0;
+    right:0;
+    border:2px solid ;
+    background-color: #023e8a;
+  }
+
+  .mobile-img > img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+  }
+
+
+}
+@media screen and (max-width: 365px) {
+  .submitted{
+    width:100%;
+  }
+}
+
+
